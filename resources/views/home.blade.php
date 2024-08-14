@@ -13,6 +13,27 @@
         @csrf
         <button>Log Out</button>
     </form>
+
+    <div style="border: 3px solid #000;">
+        <h2>Create new Post</h2>
+        <form action="/create-post" method="POST">
+            @csrf
+            <input type="text" name="title" id="title">
+            <textarea type="text" name="body" placeholder="body"></textarea>
+            <button type="submit">Save Post</button>
+        </form>
+    </div>
+
+    <div style="border: 3px solid #000;">
+        <h2>Posts</h2>
+        @foreach ($posts as $post)
+            <div>
+                <h3>{{ $post['title'] }}</h3>
+                <p>{{ $post['body'] }}</p>
+            </div>
+        @endforeach
+    </div>
+
     @else
     <div style="border: 3px solid #000;">
         <h2>Register</h2>
